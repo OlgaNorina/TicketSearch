@@ -3,21 +3,21 @@ package ru.netology.repository;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.netology.domain.TicketsSearchInfo;
+import ru.netology.domain.Ticket;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class TicketsRepository {
-    TicketsSearchInfo[] items = new TicketsSearchInfo[0];
+    Ticket[] items = new Ticket[0];
 
-    public TicketsSearchInfo[] findAll() {
+    public Ticket[] findAll() {
         return items;
     }
 
-    public void save(TicketsSearchInfo item) {
+    public void save(Ticket item) {
         int lenght = items.length + 1;
-        TicketsSearchInfo[] tmp = new TicketsSearchInfo[lenght];
+        Ticket[] tmp = new Ticket[lenght];
 
         System.arraycopy(items, 0, tmp, 0, items.length);
 
@@ -28,10 +28,10 @@ public class TicketsRepository {
 
     public void removeById(int id) {
         int lenght = items.length - 1;
-        TicketsSearchInfo[] tmp = new TicketsSearchInfo[lenght];
+        Ticket[] tmp = new Ticket[lenght];
         int index = 0;
 
-        for (TicketsSearchInfo item : items) {
+        for (Ticket item : items) {
             if (item.getId() != id) {
                 tmp[index] = item;
                 index++;

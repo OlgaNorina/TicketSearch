@@ -1,42 +1,34 @@
 package ru.netology.manager;
 
 import lombok.AllArgsConstructor;
-import ru.netology.domain.TicketsSearchInfo;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import ru.netology.domain.Ticket;
+import ru.netology.domain.TicketsComparatorByTime;
 import ru.netology.repository.TicketsRepository;
 
 import java.util.Arrays;
 
 @AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class TicketsManager {
     TicketsRepository repository;
+    TicketsComparatorByTime compare;
 
-    public void add(TicketsSearchInfo item) {
+    public void add(Ticket item) {
         repository.save(item);
     }
 
-    /*public TicketsSearchInfo[] search(String from, String to) {
-        TicketsSearchInfo[] result = new TicketsSearchInfo[0];
-        for (TicketsSearchInfo item : repository.findAll()) {
-            if (item.getFrom() == from && item.getTo() == to) {
-                TicketsSearchInfo[] tmp = new TicketsSearchInfo[result.length + 1];
-                System.arraycopy(result, 0, tmp, 0, result.length);
-                tmp[tmp.length - 1] = item;
-                result = tmp;
-            }
-        }
-        Arrays.sort(result);
-        return result;
-    }*/
-
-    public TicketsSearchInfo[] search(String from, String to) {
+    public Ticket[] search(String from, String to) {
         TicketsRepository founded = new TicketsRepository();
-        for (TicketsSearchInfo item : repository.findAll()) {
+        for (Ticket item : repository.findAll()) {
             if (item.getFrom() == from && item.getTo() == to) {
                 founded.save(item);
             }
         }
-        TicketsSearchInfo[] result = founded.findAll();
-        Arrays.sort(result);
+        Ticket[] result = founded.findAll();
+        Arrays.sort(result, compare);
         return result;
     }
 }

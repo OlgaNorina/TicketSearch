@@ -14,10 +14,10 @@ public class TicketsManager {
         repository.save(item);
     }
 
-    /*public TicketsSearchInfo[] search(String from, String to) {
+    public TicketsSearchInfo[] search(String from, String to) {
         TicketsSearchInfo[] result = new TicketsSearchInfo[0];
         for (TicketsSearchInfo item : repository.findAll()) {
-            if (item.getFrom() == from && item.getTo() == to) {
+            if (item.getFrom().equalsIgnoreCase(from) && item.getTo().equalsIgnoreCase(to)) {
                 TicketsSearchInfo[] tmp = new TicketsSearchInfo[result.length + 1];
                 System.arraycopy(result, 0, tmp, 0, result.length);
                 tmp[tmp.length - 1] = item;
@@ -26,9 +26,9 @@ public class TicketsManager {
         }
         Arrays.sort(result);
         return result;
-    }*/
+    }
 
-    public TicketsSearchInfo[] search(String from, String to) {
+    /*public TicketsSearchInfo[] search(String from, String to) {
         TicketsRepository founded = new TicketsRepository();
         for (TicketsSearchInfo item : repository.findAll()) {
             if (item.getFrom() == from && item.getTo() == to) {
@@ -38,5 +38,5 @@ public class TicketsManager {
         TicketsSearchInfo[] result = founded.findAll();
         Arrays.sort(result);
         return result;
-    }
+    }*/
 }

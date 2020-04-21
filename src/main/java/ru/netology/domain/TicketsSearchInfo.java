@@ -5,15 +5,15 @@ import lombok.Data;
 
 @AllArgsConstructor
 @Data
-public class TicketsSearchInfo implements Comparable {
-    int id;
-    int coast;
-    String from;
-    String to;
-    int flightTime;
+public class TicketsSearchInfo implements Comparable<TicketsSearchInfo> {
+    private int id;
+    private int coast;
+    private String from;
+    private String to;
+    private int flightTime;
 
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(TicketsSearchInfo o) {
         TicketsSearchInfo p = (TicketsSearchInfo) o;
         return coast - p.coast;
     }

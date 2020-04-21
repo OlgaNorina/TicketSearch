@@ -3,15 +3,13 @@ package ru.netology.manager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.Ticket;
-import ru.netology.domain.TicketsComparatorByTime;
 import ru.netology.repository.TicketsRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class TicketsManagerTest {
     TicketsRepository repository = new TicketsRepository();
-    TicketsComparatorByTime compare = new TicketsComparatorByTime();
-    TicketsManager manager = new TicketsManager(repository, compare);
+    TicketsManager manager = new TicketsManager(repository);
     private Ticket first = new Ticket(1, 5000, "DME", "CDG", 240);
     private Ticket second = new Ticket(2, 7500, "DME", "CDG", 230);
     private Ticket third = new Ticket(3, 6500, "LED", "CDG", 230);

@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class Ticket {
-    int id;
-    int coast;
-    String from;
-    String to;
-    int flightTime;
+    private int id;
+    private int coast;
+    private String from;
+    private String to;
+    private int flightTime;
 }

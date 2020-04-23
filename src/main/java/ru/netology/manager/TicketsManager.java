@@ -27,16 +27,4 @@ public class TicketsManager {
         Arrays.sort(result);
         return result;
     }
-
-    /*public TicketsSearchInfo[] search(String from, String to) {
-        TicketsRepository founded = new TicketsRepository();
-        for (TicketsSearchInfo item : repository.findAll()) {
-            if (item.getFrom() == from && item.getTo() == to) {
-                founded.save(item);
-            }
-        }
-        TicketsSearchInfo[] result = founded.findAll();
-        Arrays.sort(result);
-        return result;
-    }*/
 }

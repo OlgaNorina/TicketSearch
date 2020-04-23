@@ -14,7 +14,7 @@ public class TicketsSearchInfo implements Comparable<TicketsSearchInfo> {
 
     @Override
     public int compareTo(TicketsSearchInfo o) {
-        TicketsSearchInfo p = (TicketsSearchInfo) o;
+        TicketsSearchInfo p = o;
         return coast - p.coast;
     }
 }

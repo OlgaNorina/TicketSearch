@@ -9,7 +9,6 @@ import ru.netology.domain.TicketsSearchInfo;
 @NoArgsConstructor
 public class TicketsRepository {
     private TicketsSearchInfo[] items = new TicketsSearchInfo[0];
-    private NotFoundException exception = new NotFoundException();
 
     public TicketsSearchInfo[] findAll() {
         return items;
